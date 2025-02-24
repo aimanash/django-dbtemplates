@@ -10,7 +10,7 @@ def get_cache_backend():
     Compatibilty wrapper for getting Django's cache backend instance
     """
     from django.core.cache import caches
-    cache = caches(settings.DBTEMPLATES_CACHE_BACKEND)
+    cache = caches[settings.DBTEMPLATES_CACHE_BACKEND]
     # Some caches -- python-memcached in particular -- need to do a cleanup at
     # the end of a request cycle. If not implemented in a particular backend
     # cache.close is a no-op
